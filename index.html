@@ -2,8 +2,56 @@
 <html>
 <head>
   <title>Match Game</title>
+
+  <!-- fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Work+Sans:400,700,900&display=swap" rel="stylesheet">
+
+  <!-- stylesheets -->
+  <link rel="stylesheet" type="text/css" href="./resources/css/reset.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="./resources/css/style.css">
+  <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+
+  <!-- favicon details -->
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+
 </head>
 <body>
+  <div class="container">
+    <div class="row">
+      <!-- game intructions -->
+      <div class="col-xs-12 col-md-3">
+        <h1>Match Game</h1>
+        <h2>Rules</h2>
+        <p>Click on a card to reveal the number on the other side. Click on a second card to try to find a match to the first. If you succeed, the pair will be removed from play. If not, try again!</p>
+
+        <h2>How To Win</h2>
+        <p>You win when all pairs have been found.</p>
+      </div>
+      <!-- the game -->
+      <div class="col-xs-12 col-md-9" id="game">
+        <div class="row">
+          <div class="col-3 card" ></div>
+          <div class="col-3 card" ></div>
+          <div class="col-3 card" ></div>
+          <div class="col-3 card" ></div>
+          <div class="col-3 card" ></div>
+          <div class="col-3 card" ></div>
+          <div class="col-3 card" ></div>
+          <div class="col-3 card" ></div>
+          <div class="col-3 card" ></div>
+          <div class="col-3 card" ></div>
+          <div class="col-3 card" ></div>
+          <div class="col-3 card" ></div>
+          <div class="col-3 card" ></div>
+          <div class="col-3 card" ></div>
+          <div class="col-3 card" ></div>
+          <div class="col-3 card" ></div>
+        </div>
+      </div>
+    </div>
+  </div>
   <script
     src="https://code.jquery.com/jquery-3.1.1.min.js"
     integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
