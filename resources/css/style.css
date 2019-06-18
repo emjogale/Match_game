@@ -1,4 +1,8 @@
 /* Universal style */
+div {
+  border: 1px solid black;
+}
+
 html {
   font-size: 14px;
 }
@@ -6,6 +10,7 @@ html {
 body {
   font-family: 'Work Sans', sans-serif;
   background-color: rgb(255, 242, 242);
+  margin-top: 5.25rem;
 }
 
 h1 {
@@ -17,4 +22,21 @@ h1 {
 h2 {
   font-size: 1rem;
   font-weight: bold;
+}
+
+p {
+  color: (74,74,74);
+}
+
+/* card styles */
+.card {
+  background-color: rgb(32,64,86);
+  height: 12.5rem;
+  border-radius: 0.5rem;
+  border: 4px solid #ffffff;
+  font-weight: 900;
+  font-size: 7rem;
+  color: rgb(255,255,255);
+  text-align: center;
+  cursor: pointer;
 }
