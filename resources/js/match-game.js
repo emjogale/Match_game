@@ -10,13 +10,31 @@ var MatchGame = {};
  */
 
 MatchGame.generateCardValues = function () {
+  var sequentialValues = [];
 
+  for (i = 1; i <= 8; i++) {
+    sequentialValues.push(i);
+    sequentialValues.push(i);
+  }
+
+  var randValues = [];
+
+  while (sequentialValues.length > 0){
+    var randomIndex = Math.floor(Math.random()*sequentialValues.length);
+    var randomValue = sequentialValues.splice(randomIndex, 1)[0];
+    randValues.push(randomValue);
+}
+
+  return randValues;
 };
+
 
 /*
   Converts card values to jQuery card objects and adds them to the supplied game
   object.
 */
+
+
 
 MatchGame.renderCards = function(cardValues, $game) {
 
