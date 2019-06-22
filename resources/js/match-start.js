@@ -39,7 +39,8 @@ MatchGame.generateCardValues = function () {
 */
 
 MatchGame.renderCards = function(randValues, $game) {
-  var colors = [
+ var flippedCards = [];
+ var colors = [
     'hsl(25,85%,65%)',
     'hsl(55,85%,65%)',
     'hsl(90,85%,65%)',
@@ -50,6 +51,7 @@ MatchGame.renderCards = function(randValues, $game) {
     'hsl(360,85%,65%)'];
 
   $game.empty();
+  $game.data('flippedCards', []);
 
   for (var j=0; j<randValues.length; j++) {
   /* adding a data attribute to represent the card's value as the current index in cardValues*/
@@ -59,14 +61,17 @@ MatchGame.renderCards = function(randValues, $game) {
     var data = {
       value: value,
       color: color,
-      isFlipped: false
+      isFlipped: false,
+      flippedCards: flippedCards
     };
     var $card = $('<div class="col-xs-3 card" ></div>');
     $card.data(data);
     $game.append($card);
   }
   /* end for()*/
-
+ $('.card').click(function() {
+  MatchGame.flipCard($(this), $('#game'));
+ }); //end click
 
 };
 /* end renderCards*/
@@ -76,5 +81,36 @@ MatchGame.renderCards = function(randValues, $game) {
  */
 
 MatchGame.flipCard = function($card, $game) {
+  if ($card.data('.isFlipped')) {
+     return;
+   }
+   $card.css('background-color', $card.data('color'))
+        .text($card.data('value'))
+        .data('isFlipped', true);
 
-};
+  var flippedCards = $game.data('flippedCards');
+  flippedCards.push($card);
+  if(flippedCards.length  === 2) {
+    if (flippedCards[0].data('value') === flippedCards[1].data('value')) {
+      var matchCss = {
+        backgroundColor: 'rgb(153,153,153)',
+        color: 'rgb(204,204,204)'
+      };
+      flippedCards[0].css(matchCss);
+      flippedCards[1].css(matchCss);
+    } else {
+      var card1 = flippedCards[0];
+      var card2 = flippedCards[1];
+      window.setTimeout(function(){
+        card1.css('backgroundColor', 'rgb(32,64,86)')
+             .text('')
+             .data('isFlipped', false);
+        card2.css('backgroundColor', 'rgb(32,64,86)')
+              .text('')
+              .data('isFlipped', false);
+      }, 350); // end timeout
+    } // end else
+    $game.data('flippedCards', []);
+  } // end ifFlipped
+
+}; //end flipCard()
